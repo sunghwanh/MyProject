@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+	 xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout"
+	 layout:decorate="~{layouts/layout1}">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIGNUP</title>
+<!-- <link rel="stylesheet" type="text/css" href="../css/login.css" /> -->
+<link rel="stylesheet" th:href="@{/css/app.css}">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script>
+Kakao.init('be2f3e458c1bb1a568c295380fa8a2c4'); //발급받은 키 중 javascript키를 사용해준다.
+console.log(Kakao.isInitialized()); // sdk초기화여부판단
+//카카오로그인
+function kakaoLogin() {
+    Kakao.Auth.login({
+      success: function (response) {
+        Kakao.API.request({
+          url: '/v2/user/me',
+          success: function (response) {
+        	  console.log(response)
+          },
+          fail: function (error) {
+            console.log(error)
+          },
+        })
+      },
+      fail: function (error) {
+        console.log(error)
+      },
+    })
+  }
+</script>
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="container">
+			<div class="row full-height justify-content-center">
+				<div class="col-12 text-center align-self-center py-5">
+					<div class="section pb-5 pt-5 pt-sm-2 text-center">
+						<div class="card-3d-wrap mx-auto">
+							<div class="card-3d-wrapper">
+								<div class="card-front">
+									<div class="center-wrap">
+										<div class="section text-center">
+											<div class="form-group">
+												<a href="#" class="btn mt-4">공동인증서 로그인</a>
+												<p class="mb-0 mt-4 text-center">
+													<a href="certificate.html" class="link">인증서 발급 / 재발급</a>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="card-back">
+									<div class="center-wrap">
+										<div class="section text-center">
+											<a href="javascript:void(0)" onclick="kakaoLogin();"class="btn mt-4">간편 로그인</a>
+										</div>
+									</div>
+								</div>
+								<div class="card-last">
+									<div class="center-wrap">
+										<div class="section text-center">
+											<form th:action="@{loginSuccess}" method="post">
+												<div class="form-group">
+													<input type="text" name="user_id" class="form-style"
+														placeholder="이용자 ID" id="user_id">
+													<i class="input-icon uil uil-user"></i>
+												</div>
+												<div class="form-group mt-2">
+													<input type="text" name="user_passwd" class="form-style"
+														placeholder="비밀번호" id="user_passwd">
+													<i class="input-icon uil uil-at"></i>
+												</div>
+												<input type="submit" class="btn mt-4" value="ID 로그인">
+											</form>
+												<p class="mb-0 mt-4 text-center">
+													<a href="userfind.html" class="link">아이디 찾기 / 비밀번호 찾기</a> 
+													<a th:href="@{signup}" class="link">회원가입</a>
+												</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

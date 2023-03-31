@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+	xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout"
+	 layout:decorate="~{layouts/layout1}">
+<head>
+<head>
+	<title>게시판 목록</title>
+	<link rel="stylesheet" th:href="@{css/customer.css/checkmail.css}" />
+</head>
+<body>
+	<div layout:fragment="content" >
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		<div class="container_next" >
+			<h1>게시판 목록</h1>
+			<table border= "1" >
+				<thead>
+					<tr>
+						<th>제목</th>
+						<th>작성자</th>
+						<th>작성일</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- 게시물 목록을 동적으로 생성하는 부분 -->
+					<tr th:each="datas : ${datas}">
+						<td><a th:href="@{/mailpassword(customer_email_no=${datas.customer_email_no})}" th:text="|클릭하여 상세보기|"></a></td>
+						<td th:text="${datas.customer_email_name}"></td>
+						<td th:text="${datas.customer_email_date}"></td>
+					</tr>
+				</tbody>
+			</table>
+				<form class="search-form" action="#" method="get">
+					<label for="search-text">Search:</label>
+					<input type="text" id="search-text" name="search-text">
+					<input type="submit" value="Search">
+				</form>
+				<ul class="pagination">
+					<li><a href="#">«</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">»</a></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

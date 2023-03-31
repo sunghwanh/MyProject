@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+	xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+<body>
+	<div layout:fragment="content">
+		자동이체정보
+		<table>
+			<tr>
+				<td>이체예정일시</td>
+				<td>출금계좌</td>
+				<td>입금은행<br /> 입금계좌
+				</td>
+				<td>받는 분</td>
+				<td>이체금액(원)</td>
+				<td>수수료(원)</td>
+				<td>받는통장<br /> 메모
+				</td>
+				<td>CMS코드</td>
+			</tr>
+			<tr>
+				<td>앞에서찍은날짜</td>
+				<td>110-322-587490</td>
+				<td>기업<br /> 01050963341
+				</td>
+				<td>서정욱</td>
+				<td>100</td>
+				<td>0</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>SMS(문자메시지 통보 서비스)결과통보 신청</td>
+				<td><input type="radio">신청 <input type="radio">미신청
+				</td>
+				<td>연락처<input type="text" value="010">- <input
+					type="text">- <input type="text">
+				</td>
+			</tr>
+			<tr>
+				<td><input type="button" value="취소"> <input
+					type="button" value="예약이체 실행"></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

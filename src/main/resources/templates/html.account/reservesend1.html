@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+	xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout"
+	 layout:decorate="~{layouts/layout1}">
+<body>
+<div layout:fragment="content">
+<h2>예약이체 등록</h2>
+<hr/>
+<textarea rows="4" cols="70%">
+안내 및 유이사항
+예약일 예약시간(예. 오전9시등)전에 잔액이 있어야 이체가 실행됩니다. 
+잔액 부족 등의 이유로 미처리시 다시 입금을 하도록 재처리 되지 않으니, 반드시 사전에 잔액을 확인하여 주시기 바랍니다.
+예약이체 등록은 희망이체시각의 2시간 전까지,취소는 이체처리시각의 5분전까지 신정하여 주시기 바랍니다. 
+</textarea>
+<table>
+	<tr>
+		<td>출금계좌번호</td>
+	</tr><br/>
+	<tr>
+	<td>
+	<input type="text" value="110-322-587490[신한 주거래 우대통장]">
+	<input type="button" value="계좌선택">
+	<input type="button" value="잔액조회">
+	<input type="button" value="수수료면제횟수">
+	<input type="checkbox" >추가 예약이체 등록 시 출금계좌를 동일하게 지정
+	</td>
+	</tr>
+</table>
+<h2>입금정보</h2>
+<table>
+	<tr>
+	<td>
+		입금은행
+		<input type="text" value="신한">
+		<input type="button" value="은행선택">
+		</td>
+	</tr>
+	<tr>
+	<td>	
+		입계좌번호
+		<input type="text" value="-없이 숫자만입력">
+		<input type="button" value="자주쓰는 입금계좌">
+		<input type="button" value="본인계좌조회"><br/>
+	</td>
+	</tr>
+	<tr>
+	<td>
+		이체금액
+		<input type="text" value="">원<input type="text" value="원"><br/>
+		<input type="button" value="100만">
+		<input type="button" value="50만">
+		<input type="button" value="10만">
+		<input type="button" value="5만">
+		<input type="button" value="3만">
+		<input type="button" value="1만">
+		<input type="button" value="전액">
+		<input type="reset" value="정정">
+		</td>
+	</tr>
+	<tr>
+	<td>
+		이체예정일
+		<input type="date"> 최장 6개월 이내, 토요일/휴일 불가<br/>
+		</td>
+	</tr>
+	<tr>
+	<td>
+		이체시각 설정
+		<input type="radio">오전 7~8시 이체
+		<input type="radio">오전 9~10시 이체
+		<input type="radio">오전 11~12시 이체
+		<input type="radio">오후 1~2시 이체
+		<input type="radio">오후 3~4시 이체
+		<input type="radio">오후 5~6시 이체
+		<input type="radio">오후 7~8시 이체
+		<input type="radio">오후 9~10시 이체
+		</td>
+	</tr>
+	<tr>
+	<td>
+		받는통장 메모
+		<input type="text" value="(선택)7자 이내 입력">
+		<input type="button" value="자주쓰는 문구">
+		</td>
+	</tr>
+	<tr>
+	<td>
+		내통장 메모
+		<input type="text" value="(선택)7자 이내 입력">
+		<input type="button" value="자주쓰는 문구">
+		</td>
+	</tr>
+	<tr>
+	<td>
+		CMS코드
+		<input type="text"> 받는분이 출금인을 식별하기 위한 코드
+		</td>
+	</tr>
+</table>
+<input type="button" value="추가 예약이체">
+<input type="button" value="다음">
+</div>
+</body>
+</html>

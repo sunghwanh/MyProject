@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+	xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+<body>
+	<div layout:fragment="content">
+		
+		<div>
+			<span>결과</span> <span>출금계좌</span> <span>입금근행입금계좌</span> <span>받는분</span>
+			<span>이체금액(원)</span> <span>수수료(원)</span> <span>받는통장메모</span> <span>CMS코드</span>
+			<span>문자</span> <span>이체확인증</span>
+		</div>
+		<div>
+			<!-- 체크되거나 결제완료됬다라는 이미지 하나추가하고 -->
+			즉시 이체 처리가 완료되었습니다.<br /> 거래완료 후 처리결과 조회 및 정상 신청등록 여부를 확인하여 주시기 바랍니다.<br />
+			<input type="button" value="BAND공유"> <input type="button"
+				value="자주쓰는 입금계좌 등록"> <input type="button" value="이체목록 인쇄">
+		</div>
+		<hr />
+		<div>
+			입금내역 [총 <span th:text=""></span>
+			<!-- 입금한 내역건수 count써야됨 -->
+			건]
+		</div>
+		<div>
+			이체 후 출금계좌 잔액 : <span th:text=""></span>
+			<!-- 계좌에있는 토탈금액 출력되야됨 -->
+		</div>
+		<div>
+			<input type="button" id="gomain" value="메인으로 돌아가기"> 
+			<input type="button" id="onemore" value="추가 이체하러 가기">
+		</div>
+	</div>
+</body>
+</html>

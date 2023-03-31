@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+	xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+<body>
+
+	<div layout:fragment="content">
+		거래내용 확인<br /> 아래의 내용을 확인합니다.<br /> 확인버튼을 누르시면 거래가 완료됩니다.<br />
+		<div>
+			<!-- 아래내용은 전에 2번탭에서 작성하고 검증한결과를 불러와야함 -->
+			<ul>
+				<li>거래일자 : <input type="text" value="2023.03.24"></li>
+				<li>거래시간 : <input type="text" value="00:05:40"></li>
+				<li>출금계좌번호 : <input type="text" value="110-322-587490"></li>
+				<li>입금은행 : <input type="text" value="기업은행"></li>
+				<li>입금계좌번호 : <input type="text" value="01050963341"></li>
+				<li>수취인성명 : <input type="text" value="서정욱"></li>
+				<li>이체금액(원) : <input type="text" value="10"></li>
+				<li>수수료(원) : <input type="text" value="0"></li>
+				<li>받는통장메모 : <input type="text"></li>
+				<li>내통장메모 : <input type="text"></li>
+			</ul>
+		</div>
+		
+	</div>
+</body>
+</html>

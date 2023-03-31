@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+	xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+<body>
+	<div layout:fragment="content">
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			document.getElementById("sendmoney").onclick=function(){
+				const user_id = $('#user_id').val();
+			    const password = $('#account_passwd').val();
+			    const account_number = $('#account_number').val();
+			    const sendmoney = $('#sendmoney').val();
+			    
+				const json = JSON.stringify({
+    				'user_id': id,
+    				'password': password,
+    				'account_number' : account_number,
+    				'sendmoney' : sendmoney,
+    				
+			}
+				frm.submit();
+			}
+		}
+	</script>
+		<br><br><br><br><br><br><br>
+		<h4>출금정보</h4>
+		<form action="directsend" method="post" name="frm">
+			<div>출금계좌번호 : <span th:text="${info.account_number}"></span></div>
+			<input type="button" value="계좌선택"> <br />
+			<input type="button" value="잔액조회"> 
+			<input type="checkbox" id="ck" name="ck">
+			<label for="ck">추가이체 등록 시 출금계좌를 동일하게 지정</label>
+			<hr />
+			<div>계좌비밀번호</div>
+			<input type="password" id="account_passwd" name="account_passwd" placeholder="비밀번호 6자리">
+			<h4>입금정보</h4>
+			<div>
+				입금은행 <span th:text="${info.bank_name}"></span>
+			</div>
+			<!-- option기능들어가야함 -->
+			<input type="button" value="은행선택"> <br />
+			<hr />
+			입금계좌번호 <input type="text" name="account_number" placeholder="'-'없이 숫자만 입력"> 
+			<input type="button" value="최근입금계좌">
+			<input type="button" value="본인계좌조회">
+			<br /> 이체금액 <input type="text" id="sendmoney" name="sendmoney">
+			<label for="sendmoney">원</label>
+			<br />
+			<hr />
+			받는통장 메모 <input type="text" th:name="memo" placeholder="(선택)7자 이내 입력"> *미 입력 시 출금계좌의
+			예금주명(내이름)이 기본 표기(단,기본 표기를 무기명으로 지정시는 무기명으로 표기) <br />
+			<hr />
+			내통장 메모 <input type="text" placeholder="(선택)7자 이내 입력">
+			<!-- 사용해도되고 안해도됨 -->
+			<br /><h5>최근 전화금융사기(보이스피싱) 피해가 급증하고 있으니 한번 더 확인하신 후 이체해 주시기 바랍니다.</h5> <br />
+			<input type="button" value="추가이체"> 
+		 	<input type="button" id="sendmoney" value="이체하기">
+		<input type="hidden" th:name="user_id" th:value="${info.user_id}">
+		</form>
+	</div>
+</body>
+</html>

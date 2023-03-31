@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+	xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+<link href="css/product.css" rel="stylesheet">
+<body>
+	<div layout:fragment="content">
+		<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+		<br />
+		<h2>상품 안내</h2>
+		<!-- 선택 탭 -->
+		<ul class="nav nav-tabs" id="myTab" role="tablist">
+			<li class="nav-item" role="presentation">
+				<button class="nav-link active" id="basisprodt-tab"
+					data-bs-toggle="tab" data-bs-target="#basisprodt" type="button"
+					role="tab" aria-controls="basisprodt" aria-selected="true">입출·예·적금
+					상품</button>
+			</li>
+			<li class="nav-item" role="presentation">
+				<button class="nav-link" id="loan-tab" data-bs-toggle="tab"
+					data-bs-target="#loan" type="button" role="tab"
+					aria-controls="loan" aria-selected="false">대출 상품</button>
+			</li>
+		</ul>
+		<!-- 내용 -->
+		<div class="tab-content" id="myTabContent">
+			<div class="tab-pane fade show active" id="basisprodt"
+				role="tabpanel" aria-labelledby="basisprodt-tab">일반상품</div>
+			<div class="tab-pane fade" id="loan" role="tabpanel"
+				aria-labelledby="loan-tab">대출상품</div>
+		</div>
+	</div>
+	<script>
+		
+	</script>
+</body>
+</html>

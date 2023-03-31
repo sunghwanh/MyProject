@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+	xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+<body>
+	<div layout:fragment="content">
+		<!-- 1번 sendmoney가 되어있는 상태에서 2번sendmoney가 이어짐 -->
+		<form th:action="@{directsend3}" method="post"></form>
+		
+		<div>
+			<span>출금계좌</span> <span>입금은행 입금계좌</span> <span>받는분</span> <span>이체금액(원)</span>
+			<span>수수료(원)</span>
+		</div>
+		<div>
+			<span>110-322-587490</span> <span>기업 01050963341</span> <span>서정욱</span>
+			<span>10</span> <span>0</span>
+		</div>
+		<hr />
+		<span>수수료우대</span> <span>500원</span> <span>우대사유</span> <span>신한
+			주거래 우대통장 추가우대(생활)</span>고객님이 입력하신 이체정보입니다. 최종거래 전에 입금은행 계좌번호와 이체금액, 받는 분
+		성함을 다시 한번 확인 후 이체하여 주시기 바랍니다.
+		<hr />
+		<input type="button" value="취소">
+		<input type="button" value="이체실행">
+	</div>
+</body>
+</html>

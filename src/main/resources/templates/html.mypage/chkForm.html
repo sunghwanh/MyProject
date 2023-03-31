@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+	xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+<head>
+<title>문의사항</title>
+<link rel="stylesheet" th:href="@{css/mypage.css/chgPwd.css}" />
+<body>
+<!-- 
+${session.user_id} : session에 저장된 user_id 읽어오기
+ -->
+<div layout:fragment="content">
+<script type="text/javascript">
+
+window.onload=()=> {
+   const re = [[${result}]]; 
+   if (!re) {   // 입력한 이름 & 주민등록번호 & 아이디가 일치하지 않을 경우 모달창을 띄워줌
+      var popup = window.open("", "popup", "width=400,height=100,left=" + (screen.width-400)/2 + ",top=" + (screen.height-200)/2);
+      var message = "<p><b style='text-align: center;'>회원 정보가 일치하지 않습니다.<b></p>";
+      var button = "<button id='close-button' style='display: block; margin: 30px auto 0; padding: 10px 20px; background-color: #333; color: #fff; border: none; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); font-size: 16px; cursor: pointer; transition: background-color 0.3s ease;' onclick='window.close()'>닫기</button>";
+      popup.document.write(message + button);
+      // 버튼 클릭 시 창 닫기 및 이전 페이지로 돌아가기 (새로 고침 시 모달창이 반복적으로 뜨는 것을 방지하기 위해 history.back())
+      popup.document.getElementById('close-button').addEventListener('click', function() {
+         window.close();
+         history.back();
+      });
+   }        
+}
+</script>
+	<br/><br/><br/><br/><br/><br/><br/><br/>
+	
+		<div class="container_chgPwd">
+			<h3>본인 확인</h3><br/>
+			<!-- th:object로 컨트롤러에서 bean 객체를 전달받음 -->
+			<form th:action="@{/chkPwdInfo}" method="post" name="frm">
+			<label for="user_name">이름:</label>
+ 		    <input type="text" name="user_name">
+
+			<label for="user_jumin">주민등록번호:</label>
+			<input type="text" name="user_jumin">
+
+			<input type="submit" value="변경" class="btn" id="btnCheck">
+			</form>
+		</div>
+		<!-- alert 모달을 쓸 페이지에 추가 start-->
+        <section class="modal modal-section type-alert">
+            <div class="enroll_box">
+                <p class="menu_msg"></p>
+            </div>
+            <div class="enroll_btn">
+                <button class="btn pink_btn modal_close">확인</button>
+            </div>
+        </section>
+        <!-- alert 모달을 쓸 페이지에 추가 end-->
+	</div>
+</body>
+</html>

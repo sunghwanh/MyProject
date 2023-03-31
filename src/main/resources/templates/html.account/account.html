@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+	xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+<body>
+	<!-- 조회하기 위한 곳 -->
+	<div layout:fragment="content">
+<script type="text/javascript">
+	window.onload = function() {
+		document.getElementById("send").onclick=function(){
+			frm.submit();
+		}
+	}
+</script>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br /><br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<form th:action="@{directsend}" method="get" id="frm">
+		<input type="hidden" th:name="user_id" th:field="*{info.user_id}">
+		<table border="1">
+			<tr>
+				<th>계좌명</th>
+				<th>계좌번호</th>
+				<th>개설일자</th>
+				<th>만기일</th>
+				<th>잔액(원)</th>
+				<th>업무</th>
+			</tr>
+			<tr>
+				<td th:text="${info.user_name}">신한주거래우대통장(저축예금)</td><!--  -->
+				<td th:text="${info.account_number}">110-322-587490</td><!--  -->
+				<td th:text="${info.account_reg_date}">2011.02.14</td><!--  -->
+				<td th:text="${info.account_un_reg_date}">2023.03.21</td><!--  -->
+				<td th:text="${#numbers.formatInteger(info.account_balance,3,'COMMA')+ '원'}"></td>
+				<td><input type="button" id="send" value="즉시이체"></td>
+			</tr>
+		</table>
+		<br />
+		<table>
+			<tr>
+				<td colspan="4">나에게 맞는 추천 상품</td>
+			</tr>
+			<tr>
+				<td><input type="button" value="상품현황"></td>
+				<td><input type="button" value="금융현황"></td>
+				<td><input type="button" value="우대혜택"></td>
+				<td><input type="button" value="이체한도"></td>
+			</tr>
+		</table>
+		</form>
+	</div>
+</body>
+</html>
